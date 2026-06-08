@@ -1,0 +1,81 @@
+{{!< default}}
+
+<main class="site-main">
+
+    {{#post}}
+        {{> "content" width="wide"}}
+    {{/post}}
+
+    <div class="copy-share-link">
+        {{t "Copy and share"}}: <a href="#" id="copy-share-link" onclick="copyToClipboard(event, '{{url absolute='true'}}')"></a>
+    </div>
+
+    <style>
+    .copy-share-link {
+        width: 70%;
+        margin: 20px auto;
+        padding: 20px;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .copy-share-link a {
+        color: var(--brand-color);
+    }
+
+    @keyframes fadeinout {
+        0% { opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const link = document.getElementById('copy-share-link');
+            if (link) {
+                link.textContent = window.location.host + window.location.pathname;
+            }
+        });
+
+        function copyToClipboard(event, text) {
+            event.preventDefault();
+            const dummyInput = document.createElement('input');
+            dummyInput.value = text;
+            document.body.appendChild(dummyInput);
+            dummyInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummyInput);
+
+            const notification = document.createElement('div');
+            notification.textContent = '{{t "Link copied!"}}';
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 1rem;
+                right: 1rem;
+                padding: 1rem;
+                background-color: #333;
+                color: #fff;
+                border-radius: 0.5rem;
+                opacity: 0;
+                z-index: 9999;
+                animation: fadeinout 3s forwards;
+            `;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 3000);
+        }
+    </script>
+
+    {{#if @custom.show_related_posts}}
+        {{> "related-posts"}}
+    {{/if}}
+
+    {{#post}}
+        {{> "comments"}}
+    {{/post}}
+
+</main>
