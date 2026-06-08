@@ -1,42 +1,55 @@
 # Dawn
 
-A highly functional [Ghost](https://github.com/TryGhost/Ghost) theme that adapts to the reader's preferences. Let them read, search, subscribe, navigate, and more with ease.
+Okuyucunun tercihlerine göre uyum sağlayan, son derece işlevsel bir [Ghost](https://github.com/TryGhost/Ghost) teması. Kolaylıkla okumalarını, aramalarını, abone olmalarını, gezinmelerini ve daha fazlasını yapmalarını sağlayın.
 
 **Demo: https://dawn.ghost.io**
 
-# Instructions
+---
 
-1. [Download this theme](https://github.com/TryGhost/Dawn/archive/main.zip)
-2. Log into Ghost, and go to the `Design` settings area to upload the zip file
+## 🌍 Türkçe (tr) ve Azerbaycan Türkçesi (az) Dil Desteği
 
-# Development
+Bu sürümle birlikte Dawn temasına **Türkçe (tr)** ve **Azerbaycan Türkçesi (az)** dil destekleri eklenmiştir! Artık ziyaretçileriniz temayı tamamen kendi dillerinde deneyimleyebilir.
 
-Styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
+### Dil Desteğini Etkinleştirme
+Ghost yönetim panelinizde bu dilleri aktif hale getirmek için:
+1. Ghost sitenizin yönetim paneline (Admin) gidin.
+2. **Settings (Ayarlar) > General (Genel) > Publication Language (Yayın Dili)** bölümüne gidin.
+3. Türkçe için `tr`, Azerbaycan Türkçesi için `az` yazarak değişiklikleri kaydedin.
+
+---
+
+## Kurulum Talimatları
+
+1. [Bu temayı indirin](https://github.com/TryGhost/Dawn/archive/main.zip)
+2. Ghost yönetim paneline giriş yapın ve zip dosyasını yüklemek için `Settings > Design (Tasarım)` ayarlarına gidin.
+
+## Geliştirme
+
+Stiller, gelecekteki CSS özelliklerini polyfill etmek için Gulp/PostCSS kullanılarak derlenir. Bilgisayarınızda global olarak [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) ve [Gulp](https://gulpjs.com) kurulu olmalıdır. Ardından, temanın kök dizininde şu komutları çalıştırın:
 
 ```bash
-# Install
+# Bağımlılıkları Yükle
 yarn
 
-# Run build & watch for changes
+# Derleme Yap ve Değişiklikleri İzle
 yarn dev
 ```
 
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+Artık `/assets/css/` altındaki dosyaları düzenleyebilirsiniz. Bu dosyalar otomatik olarak `/assets/built/` dizinine derlenecektir.
 
-The `zip` Gulp task packages the theme files into `dist/dawn.zip`, which you can then upload to your site.
+Temayı sitenize yüklemeye hazır bir paket haline getirmek için `zip` Gulp görevini kullanabilirsiniz. Bu görev tema dosyalarını `dist/dawn.zip` olarak paketler:
 
 ```bash
 yarn zip
 ```
 
-# Contribution
+## Katkıda Bulunma
 
-This repo is synced automatically with [TryGhost/Themes](https://github.com/TryGhost/Themes) monorepo. If you're looking to contribute or raise an issue, head over to the main repository [TryGhost/Themes](https://github.com/TryGhost/Themes) where our official themes are developed.
+Bu depo, [TryGhost/Themes](https://github.com/TryGhost/Themes) monorepo deposuyla otomatik olarak senkronize edilmektedir. Katkıda bulunmak veya bir sorun bildirmek istiyorsanız, resmi temalarımızın geliştirildiği ana depo olan [TryGhost/Themes](https://github.com/TryGhost/Themes) adresini ziyaret edin.
 
-## Theme translations
+### Tema Çevirileri
+Çevirileri nasıl düzenleyeceğiniz veya yeni çevirilerle nasıl katkıda bulunacağınız hakkında bilgi edinmek için lütfen `@Tryghost/Themes/theme-translations/README.md` dosyasını inceleyin.
 
-Please see the @Tryghost/Themes/theme-translations/README.md for how to edit or contribute translations.
+## Telif Hakkı ve Lisans
 
-# Copyright & License
-
-Copyright (c) 2013-2026 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2013-2026 Ghost Foundation - [MIT lisansı](LICENSE) kapsamında lisanslanmıştır.
